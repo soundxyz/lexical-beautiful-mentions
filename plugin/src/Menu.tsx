@@ -548,16 +548,17 @@ export function useMenuAnchorRef(
             rootElementRect.right - menuWidth + window.pageXOffset
           }px`;
         }
-        const margin = 10;
-        if (
-          (top + menuHeight > window.innerHeight ||
-            top + menuHeight > rootElementRect.bottom) &&
-          top - rootElementRect.top > menuHeight
-        ) {
-          containerDiv.style.top = `${
-            top - menuHeight + window.pageYOffset - (height + margin)
-          }px`;
-        }
+        // commenting out because we always want menu to appear below trigger
+        // const margin = 10;
+        // if (
+        //   (top + menuHeight > window.innerHeight ||
+        //     top + menuHeight > rootElementRect.bottom) &&
+        //   top - rootElementRect.top > menuHeight
+        // ) {
+        //   containerDiv.style.top = `${
+        //     top - menuHeight + window.pageYOffset - (height + margin)
+        //   }px`;
+        // }
       }
 
       if (!containerDiv.isConnected) {

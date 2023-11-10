@@ -56,7 +56,7 @@ export type BeautifulMentionsItem =
   | string
   | {
       value: string;
-      [key: string]: string | boolean | number;
+      [key: string]: string | boolean | number | null;
     };
 
 /**
@@ -330,7 +330,7 @@ export type BeautifulMentionsPluginProps =
  * a mention in the editor.
  */
 export interface BeautifulMentionComponentProps<
-  T extends { [p: string]: string | boolean | number } = {},
+  T extends { [p: string]: string | boolean | number | null } = {},
 > extends Omit<ComponentPropsWithRef<any>, "value" | "data"> {
   /**
    * The trigger of the mention.
