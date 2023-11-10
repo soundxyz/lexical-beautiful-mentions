@@ -3,6 +3,7 @@ import { describe, expect, test } from "vitest";
 import {
   $createBeautifulMentionNode,
   BeautifulMentionNode,
+  MentionNodeDataValue,
 } from "./MentionNode";
 
 const editorConfig: CreateEditorArgs = {
@@ -12,7 +13,7 @@ const editorConfig: CreateEditorArgs = {
 export function exportJSON(
   trigger: string,
   value: string,
-  data?: { [p: string]: string | boolean | number },
+  data?: { [p: string]: MentionNodeDataValue },
 ) {
   let node: BeautifulMentionNode | undefined = undefined;
   const editor = createEditor(editorConfig);

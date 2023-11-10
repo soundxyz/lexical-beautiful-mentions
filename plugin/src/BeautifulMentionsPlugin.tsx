@@ -32,6 +32,7 @@ import {
   $createBeautifulMentionNode,
   $isBeautifulMentionNode,
   BeautifulMentionNode,
+  MentionNodeDataValue,
 } from "./MentionNode";
 import { MenuOption, MenuTextMatch } from "./Menu";
 import { TypeaheadMenuPlugin } from "./TypeaheadMenuPlugin";
@@ -69,7 +70,7 @@ class MentionOption extends MenuOption {
     public readonly trigger: string,
     value: string,
     displayValue: string,
-    data?: { [key: string]: string | boolean | number },
+    data?: { [key: string]: MentionNodeDataValue },
   ) {
     super(value, displayValue, data);
     this.menuItem = {

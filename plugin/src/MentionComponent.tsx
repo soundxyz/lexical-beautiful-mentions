@@ -24,7 +24,7 @@ import {
 } from "lexical";
 import React, { ElementType, useCallback, useMemo, useState } from "react";
 import { BeautifulMentionComponentProps as CustomBeautifulMentionComponentProps } from "./BeautifulMentionsPluginProps";
-import { $isBeautifulMentionNode } from "./MentionNode";
+import { $isBeautifulMentionNode, MentionNodeDataValue } from "./MentionNode";
 import { IS_IOS } from "./environment";
 import { getNextSibling, getPreviousSibling } from "./mention-utils";
 import { BeautifulMentionsThemeValues } from "./theme";
@@ -33,7 +33,7 @@ interface BeautifulMentionComponentProps {
   nodeKey: NodeKey;
   trigger: string;
   value: string;
-  data?: { [p: string]: string | boolean | number };
+  data?: { [p: string]: MentionNodeDataValue };
   component?: ElementType<CustomBeautifulMentionComponentProps> | null;
   className?: string;
   classNameFocused?: string;

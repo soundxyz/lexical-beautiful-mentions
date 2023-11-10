@@ -34,6 +34,7 @@ import {
 import { CAN_USE_DOM, IS_MOBILE } from "./environment";
 import { $insertTriggerAtSelection } from "./mention-commands";
 import { useIsFocused } from "./useIsFocused";
+import { MentionNodeDataValue } from "./MentionNode";
 
 interface ComboboxPluginProps
   extends Pick<
@@ -71,7 +72,7 @@ class ComboboxOption extends MenuOption {
     public readonly itemType: "trigger" | "value" | "additional",
     value: string,
     displayValue: string,
-    data: { [key: string]: string | boolean | number } = {},
+    data: { [key: string]: MentionNodeDataValue } = {},
   ) {
     super(value, displayValue, data);
     this.comboboxItem = {

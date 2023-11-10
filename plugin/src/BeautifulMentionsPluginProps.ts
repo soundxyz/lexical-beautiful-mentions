@@ -1,4 +1,5 @@
 import { ComponentPropsWithRef, ElementType } from "react";
+import { MentionNodeDataValue } from "./MentionNode";
 
 /**
  * Represents a menu item for a mention.
@@ -20,7 +21,7 @@ export interface BeautifulMentionsMenuItem {
   /**
    * Additional data belonging to the mention.
    */
-  data?: { [key: string]: string | boolean | number };
+  data?: { [key: string]: MentionNodeDataValue };
 }
 
 /**
@@ -44,7 +45,7 @@ export interface BeautifulMentionsComboboxItem {
   /**
    * Additional data belonging to the mention.
    */
-  data?: { [key: string]: string | boolean | number };
+  data?: { [key: string]: MentionNodeDataValue };
 }
 
 /**
@@ -56,7 +57,7 @@ export type BeautifulMentionsItem =
   | string
   | {
       value: string;
-      [key: string]: string | boolean | number | null;
+      [key: string]: MentionNodeDataValue;
     };
 
 /**
@@ -330,7 +331,7 @@ export type BeautifulMentionsPluginProps =
  * a mention in the editor.
  */
 export interface BeautifulMentionComponentProps<
-  T extends { [p: string]: string | boolean | number | null } = {},
+  T extends { [p: string]: MentionNodeDataValue } = {},
 > extends Omit<ComponentPropsWithRef<any>, "value" | "data"> {
   /**
    * The trigger of the mention.

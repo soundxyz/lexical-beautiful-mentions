@@ -25,6 +25,7 @@ import {
   useState,
 } from "react";
 import { CAN_USE_DOM, IS_MOBILE } from "./environment";
+import { MentionNodeDataValue } from "./MentionNode";
 
 const useLayoutEffectImpl: typeof useLayoutEffect = CAN_USE_DOM
   ? useLayoutEffect
@@ -72,7 +73,7 @@ export class MenuOption {
     /**
      * Additional data belonging to the option. For example: `{ id: 1 }`.
      */
-    public readonly data?: { [key: string]: string | boolean | number },
+    public readonly data?: { [key: string]: MentionNodeDataValue },
   ) {
     this.key = !data ? value : JSON.stringify({ ...data, value });
     this.displayValue = displayValue ?? value;
