@@ -46,6 +46,7 @@ type UseMenuAnchorRefOptions = {
   resolution: MenuResolution | null;
   setResolution: (r: MenuResolution | null) => void;
   className?: string;
+  menuContainerClassName?: string
   menuVisible?: boolean;
 };
 
@@ -520,21 +521,43 @@ export function Menu<TOption extends MenuOption>({
   return menu;
 }
 
+function findAnchorElement(className?: string) {
+  if (!className) {
+    return null
+  } else {
+    const anchorElements = document.getElementsByClassName(className)
+    if (anchorElements.length) {
+      return anchorElements[0] as HTMLElement
+    } else {
+      console.log(`couldn't find anchor (initially): ${className}`)
+      return null
+    }
+  }
+}
+
 export function useMenuAnchorRef(
   opt: UseMenuAnchorRefOptions,
-): MutableRefObject<HTMLElement> {
-  const { resolution, setResolution, className, menuVisible } = opt;
+): MutableRefObject<HTMLElement | null> {
+  const { resolution, setResolution, className, menuVisible, menuContainerClassName} = opt;
   const [editor] = useLexicalComposerContext();
-  const anchorElementRef = useRef<HTMLElement>(document.createElement("div"));
+  const anchorElementRef = useRef<HTMLElement>(document.createElement('div'));
   const positionMenu = useCallback(() => {
+
     const rootElement = editor.getRootElement();
+    const renderingContainer = findAnchorElement(menuContainerClassName) || document.body
     const containerDiv = anchorElementRef.current;
     const menuEle = containerDiv.firstChild as Element;
 
+    console.log(`rootelement: `, rootElement)
+    console.log(`containerdiv: `, containerDiv)
+    console.log(`resolution: `, resolution?.getRect())
+
+    
+
     if (rootElement !== null && resolution !== null) {
       const { left, top, height } = resolution.getRect();
-      containerDiv.style.top = `${top + window.pageYOffset}px`;
-      containerDiv.style.left = `${left + window.pageXOffset}px`;
+      containerDiv.style.top = `${top - renderingContainer.offsetTop +  window.pageYOffset}px`;
+      containerDiv.style.left = `${left - renderingContainer.offsetLeft  + window.pageXOffset}px`;
       containerDiv.style.height = `${height}px`;
 
       if (menuEle !== null) {
@@ -571,12 +594,26 @@ export function useMenuAnchorRef(
         containerDiv.setAttribute("role", "listbox");
         containerDiv.style.display = "block";
         containerDiv.style.position = "absolute";
-        document.body.append(containerDiv);
+        renderingContainer.append(containerDiv);
       }
       anchorElementRef.current = containerDiv;
       rootElement.setAttribute("aria-controls", "typeahead-menu");
     }
-  }, [editor, resolution, className]);
+  }, [editor, resolution, menuContainerClassName, className]);
+
+  // useEffect(() => {
+  //   if (menuContainerClassName) {
+  //       const anchorElement = findAnchorElement(className)
+  //       if (anchorElement) {
+  //         anchorElementRef.current = anchorElement
+  //       } else {
+  //         console.warn(`Couldn't find anchor element: ${className}`)
+  //       }
+  //   } else {
+  //     document.createElement("div");
+  //   }
+    
+  //  }, [className])
 
   useEffect(() => {
     const rootElement = editor.getRootElement();

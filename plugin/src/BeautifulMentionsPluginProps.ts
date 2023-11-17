@@ -184,6 +184,10 @@ type BeautifulMentionsMenuComponentsProps = BeautifulMentionsProps & {
    */
   menuAnchorClassName?: string;
   /**
+   * The class name to render the anchor inside
+   */
+  menuContainerClassName?: string
+  /**
    * The component to use for the menu.
    * @default ul
    */
@@ -274,6 +278,7 @@ type BeautifulMentionsMenuCommandComponentProps = BeautifulMentionsProps & {
    */
   onComboboxFocusChange?: (item: BeautifulMentionsComboboxItem | null) => void;
   menuAnchorClassName?: never;
+  menuContainerClassName?: never
   menuComponent?: never;
   menuItemComponent?: never;
   insertOnBlur?: never;
