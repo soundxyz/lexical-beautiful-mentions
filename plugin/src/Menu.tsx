@@ -547,11 +547,6 @@ export function useMenuAnchorRef(
     const renderingContainer = findAnchorElement(menuContainerClassName) || document.body
     const containerDiv = anchorElementRef.current;
     const menuEle = containerDiv.firstChild as Element;
-
-    console.log(`rootelement: `, rootElement)
-    console.log(`containerdiv: `, containerDiv)
-    console.log(`resolution: `, resolution?.getRect())
-
     
 
     if (rootElement !== null && resolution !== null) {
