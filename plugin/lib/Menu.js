@@ -343,8 +343,8 @@ export function useMenuAnchorRef(opt) {
         if (rootElement !== null && resolution !== null) {
             const { left, top, height } = resolution.getRect();
             const { left: renderingContainerLeft, top: renderingContainerTop } = renderingContainer.getBoundingClientRect();
-            containerDiv.style.top = `${top - renderingContainerTop + window.pageYOffset}px`;
-            containerDiv.style.left = `${left - renderingContainerLeft + window.pageXOffset}px`;
+            containerDiv.style.top = `${top - renderingContainerTop + renderingContainer.scrollTop}px`;
+            containerDiv.style.left = `${left - renderingContainerLeft + renderingContainer.scrollLeft}px`;
             containerDiv.style.height = `${height}px`;
             if (menuEle !== null) {
                 const menuRect = menuEle.getBoundingClientRect();
