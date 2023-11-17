@@ -11,5 +11,6 @@ export type TypeaheadMenuPluginProps<TOption extends MenuOption> = {
     onOpen?: (resolution: MenuResolution) => void;
     onClose?: () => void;
     anchorClassName?: string;
+    menuContainerClassName?: string;
 };
-export declare function TypeaheadMenuPlugin<TOption extends MenuOption>({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, }: TypeaheadMenuPluginProps<TOption>): JSX.Element | null;
+export declare function TypeaheadMenuPlugin<TOption extends MenuOption>({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, menuContainerClassName }: TypeaheadMenuPluginProps<TOption>): JSX.Element | null;

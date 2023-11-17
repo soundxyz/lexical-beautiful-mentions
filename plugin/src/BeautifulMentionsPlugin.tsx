@@ -151,6 +151,7 @@ export function BeautifulMentionsPlugin(props: BeautifulMentionsPluginProps) {
     menuComponent: MenuComponent = "ul",
     menuItemComponent: MenuItemComponent = "li",
     menuAnchorClassName,
+    menuContainerClassName,
     showMentionsOnDelete,
     showCurrentMentionsAsSuggestions = true,
     mentionEnclosure,
@@ -625,6 +626,7 @@ export function BeautifulMentionsPlugin(props: BeautifulMentionsPluginProps) {
       triggerFn={checkForMentionMatch}
       options={options}
       anchorClassName={menuAnchorClassName}
+      menuContainerClassName={menuContainerClassName}
       onClose={handleClose}
       menuRenderFn={(
         anchorElementRef,

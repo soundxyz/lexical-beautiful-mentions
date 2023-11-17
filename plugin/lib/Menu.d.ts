@@ -14,6 +14,7 @@ type UseMenuAnchorRefOptions = {
     resolution: MenuResolution | null;
     setResolution: (r: MenuResolution | null) => void;
     className?: string;
+    menuContainerClassName?: string;
     menuVisible?: boolean;
 };
 export declare class MenuOption {
