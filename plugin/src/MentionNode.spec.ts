@@ -1,9 +1,9 @@
 import { CreateEditorArgs, createEditor } from "lexical";
 import { describe, expect, test } from "vitest";
+import { BeautifulMentionsItemData } from "./BeautifulMentionsPluginProps";
 import {
   $createBeautifulMentionNode,
   BeautifulMentionNode,
-  MentionNodeDataValue,
 } from "./MentionNode";
 
 const editorConfig: CreateEditorArgs = {
@@ -13,7 +13,7 @@ const editorConfig: CreateEditorArgs = {
 export function exportJSON(
   trigger: string,
   value: string,
-  data?: { [p: string]: MentionNodeDataValue },
+  data?: { [p: string]: BeautifulMentionsItemData },
 ) {
   let node: BeautifulMentionNode | undefined = undefined;
   const editor = createEditor(editorConfig);
