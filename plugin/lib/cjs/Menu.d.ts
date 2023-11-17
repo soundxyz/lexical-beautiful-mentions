@@ -1,6 +1,6 @@
 import { LexicalEditor, TextNode } from "lexical";
 import { MutableRefObject, ReactPortal } from "react";
-import { MentionNodeDataValue } from "./MentionNode";
+import { BeautifulMentionsItemData } from "./BeautifulMentionsPluginProps";
 export type MenuTextMatch = {
     leadOffset: number;
     matchingString: string;
@@ -31,7 +31,7 @@ export declare class MenuOption {
      * Additional data belonging to the option. For example: `{ id: 1 }`.
      */
     readonly data?: {
-        [key: string]: MentionNodeDataValue;
+        [key: string]: BeautifulMentionsItemData;
     } | undefined;
     /**
      * Unique key to iterate over options. Equals to `data` if provided, otherwise
@@ -56,7 +56,7 @@ export declare class MenuOption {
      * Additional data belonging to the option. For example: `{ id: 1 }`.
      */
     data?: {
-        [key: string]: MentionNodeDataValue;
+        [key: string]: BeautifulMentionsItemData;
     } | undefined);
     setRefElement(element: HTMLElement | null): void;
 }

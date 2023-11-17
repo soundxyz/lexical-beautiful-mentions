@@ -8,7 +8,7 @@ export declare function useBeautifulMentions(): {
         trigger: string;
         value: string;
         data: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
     }[];
     insertMention: (options: InsertMention) => boolean;

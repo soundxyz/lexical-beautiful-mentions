@@ -7,7 +7,8 @@ const MentionNode_1 = require("./MentionNode");
  * extend it and use the mention component of your choice.
  */
 function createBeautifulMentionNode(mentionComponent) {
-    exports.CustomBeautifulMentionNode = generateClass(mentionComponent);
+    exports.CustomBeautifulMentionNode =
+        exports.CustomBeautifulMentionNode || generateClass(mentionComponent);
     return [
         exports.CustomBeautifulMentionNode,
         {

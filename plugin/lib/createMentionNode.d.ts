@@ -10,7 +10,7 @@ export declare let CustomBeautifulMentionNode: ReturnType<typeof generateClass>;
  */
 export declare function createBeautifulMentionNode(mentionComponent: ElementType<BeautifulMentionComponentProps>): ({
     new (trigger: string, value: string, data?: {
-        [p: string]: import("./MentionNode").MentionNodeDataValue;
+        [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
     } | undefined, key?: string | undefined): {
         [x: string]: any;
         exportJSON(): SerializedBeautifulMentionNode;
@@ -19,7 +19,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -31,10 +31,10 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -87,7 +87,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -99,10 +99,10 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -153,7 +153,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -165,10 +165,10 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -220,7 +220,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -232,10 +232,10 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -296,7 +296,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -308,10 +308,10 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -358,7 +358,7 @@ export declare function createBeautifulMentionNode(mentionComponent: ElementType
 })[];
 declare function generateClass(mentionComponent: ElementType<BeautifulMentionComponentProps>): {
     new (trigger: string, value: string, data?: {
-        [p: string]: import("./MentionNode").MentionNodeDataValue;
+        [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
     } | undefined, key?: string | undefined): {
         [x: string]: any;
         exportJSON(): SerializedBeautifulMentionNode;
@@ -367,7 +367,7 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -379,10 +379,10 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -435,7 +435,7 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -447,10 +447,10 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -501,7 +501,7 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -513,10 +513,10 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;
@@ -568,7 +568,7 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         __trigger: string;
         __value: string;
         __data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         exportDOM(): {
             element: HTMLSpanElement;
@@ -580,10 +580,10 @@ declare function generateClass(mentionComponent: ElementType<BeautifulMentionCom
         getValue(): string;
         setValue(value: string): void;
         getData(): {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined;
         setData(data?: {
-            [p: string]: import("./MentionNode").MentionNodeDataValue;
+            [p: string]: import("./BeautifulMentionsPluginProps").BeautifulMentionsItemData;
         } | undefined): void;
         isIsolated(): boolean;
         isInline(): boolean;

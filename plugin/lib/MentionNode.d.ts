@@ -1,13 +1,12 @@
 import type { SerializedLexicalNode, Spread } from "lexical";
 import { DecoratorNode, LexicalEditor, type DOMConversionOutput, type EditorConfig, type LexicalNode, type NodeKey } from "lexical";
 import React, { ElementType } from "react";
-import { BeautifulMentionComponentProps } from "./BeautifulMentionsPluginProps";
-export type MentionNodeDataValue = string | boolean | number | null;
+import { BeautifulMentionComponentProps, BeautifulMentionsItemData } from "./BeautifulMentionsPluginProps";
 export type SerializedBeautifulMentionNode = Spread<{
     trigger: string;
     value: string;
     data?: {
-        [p: string]: MentionNodeDataValue;
+        [p: string]: BeautifulMentionsItemData;
     };
 }, SerializedLexicalNode>;
 declare function convertElement(domNode: HTMLElement): DOMConversionOutput | null;
@@ -18,7 +17,7 @@ export declare class BeautifulMentionNode extends DecoratorNode<React.JSX.Elemen
     __trigger: string;
     __value: string;
     __data?: {
-        [p: string]: MentionNodeDataValue;
+        [p: string]: BeautifulMentionsItemData;
     };
     static getType(): string;
     static clone(node: BeautifulMentionNode): BeautifulMentionNode;
@@ -33,7 +32,7 @@ export declare class BeautifulMentionNode extends DecoratorNode<React.JSX.Elemen
         } | null;
     };
     constructor(trigger: string, value: string, data?: {
-        [p: string]: MentionNodeDataValue;
+        [p: string]: BeautifulMentionsItemData;
     }, key?: NodeKey);
     exportJSON(): SerializedBeautifulMentionNode;
     createDOM(): HTMLSpanElement;
@@ -43,16 +42,16 @@ export declare class BeautifulMentionNode extends DecoratorNode<React.JSX.Elemen
     getValue(): string;
     setValue(value: string): void;
     getData(): {
-        [p: string]: MentionNodeDataValue;
+        [p: string]: BeautifulMentionsItemData;
     } | undefined;
     setData(data?: {
-        [p: string]: MentionNodeDataValue;
+        [p: string]: BeautifulMentionsItemData;
     }): void;
     component(): ElementType<BeautifulMentionComponentProps> | null;
     decorate(_editor: LexicalEditor, config: EditorConfig): import("react/jsx-runtime").JSX.Element;
 }
 export declare function $createBeautifulMentionNode(trigger: string, value: string, data?: {
-    [p: string]: MentionNodeDataValue;
+    [p: string]: BeautifulMentionsItemData;
 }): BeautifulMentionNode;
 export declare function $isBeautifulMentionNode(node: LexicalNode | null | undefined): node is BeautifulMentionNode;
 export {};

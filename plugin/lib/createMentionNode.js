@@ -5,7 +5,8 @@ export let CustomBeautifulMentionNode;
  * extend it and use the mention component of your choice.
  */
 export function createBeautifulMentionNode(mentionComponent) {
-    CustomBeautifulMentionNode = generateClass(mentionComponent);
+    CustomBeautifulMentionNode =
+        CustomBeautifulMentionNode || generateClass(mentionComponent);
     return [
         CustomBeautifulMentionNode,
         {
