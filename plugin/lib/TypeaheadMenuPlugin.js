@@ -54,7 +54,7 @@ function startTransition(callback) {
         callback();
     }
 }
-export function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, }) {
+export function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, menuContainerClassName }) {
     const [editor] = useLexicalComposerContext();
     const [resolution, setResolution] = useState(null);
     const [menuVisible, setMenuVisible] = useState(false);
@@ -62,6 +62,7 @@ export function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange,
         resolution,
         setResolution,
         className: anchorClassName,
+        menuContainerClassName,
         menuVisible,
     });
     const closeTypeahead = useCallback(() => {

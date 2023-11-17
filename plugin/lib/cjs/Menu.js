@@ -324,18 +324,37 @@ function Menu({ close, editor, anchorElementRef, resolution, options, menuRender
     return menu;
 }
 exports.Menu = Menu;
+function findAnchorElement(className) {
+    if (!className) {
+        return null;
+    }
+    else {
+        const anchorElements = document.getElementsByClassName(className);
+        if (anchorElements.length) {
+            return anchorElements[0];
+        }
+        else {
+            console.log(`couldn't find anchor (initially): ${className}`);
+            return null;
+        }
+    }
+}
 function useMenuAnchorRef(opt) {
-    const { resolution, setResolution, className, menuVisible } = opt;
+    const { resolution, setResolution, className, menuVisible, menuContainerClassName } = opt;
     const [editor] = (0, LexicalComposerContext_1.useLexicalComposerContext)();
-    const anchorElementRef = (0, react_1.useRef)(document.createElement("div"));
+    const anchorElementRef = (0, react_1.useRef)(document.createElement('div'));
     const positionMenu = (0, react_1.useCallback)(() => {
         const rootElement = editor.getRootElement();
+        const renderingContainer = findAnchorElement(menuContainerClassName) || document.body;
         const containerDiv = anchorElementRef.current;
         const menuEle = containerDiv.firstChild;
+        console.log(`rootelement: `, rootElement);
+        console.log(`containerdiv: `, containerDiv);
+        console.log(`resolution: `, resolution === null || resolution === void 0 ? void 0 : resolution.getRect());
         if (rootElement !== null && resolution !== null) {
             const { left, top, height } = resolution.getRect();
-            containerDiv.style.top = `${top + window.pageYOffset}px`;
-            containerDiv.style.left = `${left + window.pageXOffset}px`;
+            containerDiv.style.top = `${top - renderingContainer.offsetTop + window.pageYOffset}px`;
+            containerDiv.style.left = `${left - renderingContainer.offsetLeft + window.pageXOffset}px`;
             containerDiv.style.height = `${height}px`;
             if (menuEle !== null) {
                 const menuRect = menuEle.getBoundingClientRect();
@@ -345,17 +364,6 @@ function useMenuAnchorRef(opt) {
                 if (left + menuWidth > rootElementRect.right) {
                     containerDiv.style.left = `${rootElementRect.right - menuWidth + window.pageXOffset}px`;
                 }
-                // commenting out because we always want menu to appear below trigger
-                // const margin = 10;
-                // if (
-                //   (top + menuHeight > window.innerHeight ||
-                //     top + menuHeight > rootElementRect.bottom) &&
-                //   top - rootElementRect.top > menuHeight
-                // ) {
-                //   containerDiv.style.top = `${
-                //     top - menuHeight + window.pageYOffset - (height + margin)
-                //   }px`;
-                // }
             }
             if (!containerDiv.isConnected) {
                 if (className) {
@@ -366,12 +374,12 @@ function useMenuAnchorRef(opt) {
                 containerDiv.setAttribute("role", "listbox");
                 containerDiv.style.display = "block";
                 containerDiv.style.position = "absolute";
-                document.body.append(containerDiv);
+                renderingContainer.append(containerDiv);
             }
             anchorElementRef.current = containerDiv;
             rootElement.setAttribute("aria-controls", "typeahead-menu");
         }
-    }, [editor, resolution, className]);
+    }, [editor, resolution, menuContainerClassName, className]);
     (0, react_1.useEffect)(() => {
         const rootElement = editor.getRootElement();
         const removeMenu = () => {

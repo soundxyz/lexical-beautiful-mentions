@@ -80,7 +80,7 @@ function startTransition(callback) {
         callback();
     }
 }
-function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, }) {
+function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange, onSelectOption, onOpen, onClose, menuRenderFn, triggerFn, anchorClassName, menuContainerClassName }) {
     const [editor] = (0, LexicalComposerContext_1.useLexicalComposerContext)();
     const [resolution, setResolution] = (0, react_1.useState)(null);
     const [menuVisible, setMenuVisible] = (0, react_1.useState)(false);
@@ -88,6 +88,7 @@ function TypeaheadMenuPlugin({ options, onQueryChange, onSelectionChange, onSele
         resolution,
         setResolution,
         className: anchorClassName,
+        menuContainerClassName,
         menuVisible,
     });
     const closeTypeahead = (0, react_1.useCallback)(() => {

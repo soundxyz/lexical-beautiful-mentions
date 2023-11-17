@@ -83,7 +83,7 @@ export function checkForMentions(text, triggers, punctuation, allowSpaces) {
  * A plugin that adds mentions to the lexical editor.
  */
 export function BeautifulMentionsPlugin(props) {
-    const { items, onSearch, searchDelay = props.onSearch ? 250 : 0, allowSpaces = true, insertOnBlur = true, menuComponent: MenuComponent = "ul", menuItemComponent: MenuItemComponent = "li", menuAnchorClassName, showMentionsOnDelete, showCurrentMentionsAsSuggestions = true, mentionEnclosure, onMenuOpen, onMenuClose, onMenuItemSelect, punctuation = DEFAULT_PUNCTUATION, } = props;
+    const { items, onSearch, searchDelay = props.onSearch ? 250 : 0, allowSpaces = true, insertOnBlur = true, menuComponent: MenuComponent = "ul", menuItemComponent: MenuItemComponent = "li", menuAnchorClassName, menuContainerClassName, showMentionsOnDelete, showCurrentMentionsAsSuggestions = true, mentionEnclosure, onMenuOpen, onMenuClose, onMenuItemSelect, punctuation = DEFAULT_PUNCTUATION, } = props;
     const justSelectedAnOption = useRef(false);
     const isEditorFocused = useIsFocused();
     const triggers = useMemo(() => props.triggers || Object.keys(items || {}), [props.triggers, items]);
@@ -387,7 +387,7 @@ export function BeautifulMentionsPlugin(props) {
     if (props.combobox) {
         return (_jsx(ComboboxPlugin, { options: options, loading: loading, onQueryChange: setQueryString, onSelectOption: handleSelectOption, onReset: () => setTrigger(null), triggerFn: checkForMentionMatch, triggers: triggers, punctuation: punctuation, creatable: creatable, comboboxOpen: props.comboboxOpen, comboboxAnchor: props.comboboxAnchor, comboboxAnchorClassName: props.comboboxAnchorClassName, comboboxComponent: props.comboboxComponent, comboboxItemComponent: props.comboboxItemComponent, comboboxAdditionalItems: props.comboboxAdditionalItems, onComboboxOpen: props.onComboboxOpen, onComboboxClose: props.onComboboxClose, onComboboxFocusChange: props.onComboboxFocusChange, onComboboxItemSelect: props.onComboboxItemSelect }));
     }
-    return (_jsx(TypeaheadMenuPlugin, { onQueryChange: setQueryString, onSelectOption: handleSelectMenuItem, onSelectionChange: setSelectedMenuIndex, triggerFn: checkForMentionMatch, options: options, anchorClassName: menuAnchorClassName, onClose: handleClose, menuRenderFn: (anchorElementRef, { selectedIndex, selectOptionAndCleanUp, setHighlightedIndex }) => anchorElementRef.current && (options.length > 0 || loading)
+    return (_jsx(TypeaheadMenuPlugin, { onQueryChange: setQueryString, onSelectOption: handleSelectMenuItem, onSelectionChange: setSelectedMenuIndex, triggerFn: checkForMentionMatch, options: options, anchorClassName: menuAnchorClassName, menuContainerClassName: menuContainerClassName, onClose: handleClose, menuRenderFn: (anchorElementRef, { selectedIndex, selectOptionAndCleanUp, setHighlightedIndex }) => anchorElementRef.current && (options.length > 0 || loading)
             ? ReactDOM.createPortal(_jsx(MenuComponent, { loading: loading, role: "menu", "aria-label": "Choose a mention", "aria-hidden": !open, "aria-activedescendant": selectedIndex !== null && !!options[selectedIndex]
                     ? options[selectedIndex].displayValue
                     : "", children: options.map((option, i) => (_jsx(MenuItemComponent, Object.assign({ tabIndex: -1, selected: selectedIndex === i, ref: option.setRefElement, role: "menuitem", "aria-selected": selectedIndex === i, "aria-label": `Choose ${option.value}`, item: option.menuItem, itemValue: option.value, label: option.displayValue }, option.data, { onClick: () => {

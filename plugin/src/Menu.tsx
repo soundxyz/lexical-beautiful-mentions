@@ -537,7 +537,7 @@ function findAnchorElement(className?: string) {
 
 export function useMenuAnchorRef(
   opt: UseMenuAnchorRefOptions,
-): MutableRefObject<HTMLElement | null> {
+): MutableRefObject<HTMLElement> {
   const { resolution, setResolution, className, menuVisible, menuContainerClassName} = opt;
   const [editor] = useLexicalComposerContext();
   const anchorElementRef = useRef<HTMLElement>(document.createElement('div'));
@@ -572,17 +572,7 @@ export function useMenuAnchorRef(
             rootElementRect.right - menuWidth + window.pageXOffset
           }px`;
         }
-        // commenting out because we always want menu to appear below trigger
-        // const margin = 10;
-        // if (
-        //   (top + menuHeight > window.innerHeight ||
-        //     top + menuHeight > rootElementRect.bottom) &&
-        //   top - rootElementRect.top > menuHeight
-        // ) {
-        //   containerDiv.style.top = `${
-        //     top - menuHeight + window.pageYOffset - (height + margin)
-        //   }px`;
-        // }
+
       }
 
       if (!containerDiv.isConnected) {
@@ -601,19 +591,6 @@ export function useMenuAnchorRef(
     }
   }, [editor, resolution, menuContainerClassName, className]);
 
-  // useEffect(() => {
-  //   if (menuContainerClassName) {
-  //       const anchorElement = findAnchorElement(className)
-  //       if (anchorElement) {
-  //         anchorElementRef.current = anchorElement
-  //       } else {
-  //         console.warn(`Couldn't find anchor element: ${className}`)
-  //       }
-  //   } else {
-  //     document.createElement("div");
-  //   }
-    
-  //  }, [className])
 
   useEffect(() => {
     const rootElement = editor.getRootElement();
