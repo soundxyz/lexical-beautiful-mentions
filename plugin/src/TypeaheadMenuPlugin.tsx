@@ -88,6 +88,7 @@ export type TypeaheadMenuPluginProps<TOption extends MenuOption> = {
   onOpen?: (resolution: MenuResolution) => void;
   onClose?: () => void;
   anchorClassName?: string;
+  menuContainerClassName?: string
 };
 
 export function TypeaheadMenuPlugin<TOption extends MenuOption>({
@@ -100,6 +101,7 @@ export function TypeaheadMenuPlugin<TOption extends MenuOption>({
   menuRenderFn,
   triggerFn,
   anchorClassName,
+  menuContainerClassName
 }: TypeaheadMenuPluginProps<TOption>): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
   const [resolution, setResolution] = useState<MenuResolution | null>(null);
@@ -108,6 +110,7 @@ export function TypeaheadMenuPlugin<TOption extends MenuOption>({
     resolution,
     setResolution,
     className: anchorClassName,
+    menuContainerClassName,
     menuVisible,
   });
 

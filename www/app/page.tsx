@@ -11,7 +11,9 @@ const ConfigurationProvider = dynamic(
 export default function Home() {
   return (
     <ConfigurationProvider>
-      <Editor />
+        <div className="relative menu-container">
+          <Editor />
+        </div>
     </ConfigurationProvider>
   );
 }

@@ -191,6 +191,7 @@ function Plugins() {
             onSearch={handleSearch}
             searchDelay={asynchronous ? 250 : 0}
             triggers={triggers}
+            menuContainerClassName={'menu-container'}
             mentionEnclosure={mentionEnclosure}
             allowSpaces={allowSpaces}
             creatable={creatable}
@@ -207,6 +208,7 @@ function Plugins() {
             onSearch={handleSearch}
             searchDelay={asynchronous ? 250 : 0}
             triggers={triggers}
+            
             mentionEnclosure={mentionEnclosure}
             allowSpaces={allowSpaces}
             creatable={creatable}
