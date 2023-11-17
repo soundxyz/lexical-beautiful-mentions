@@ -1,3 +1,9 @@
+# reasons for fork
+
+- render menu inside specific container
+- dropdown always below, never above
+
+
 # lexical-beautiful-mentions
 
 [![CI status][github-ci-action-image]][github-ci-action-url]
