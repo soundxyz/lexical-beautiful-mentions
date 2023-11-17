@@ -340,9 +340,6 @@ export function useMenuAnchorRef(opt) {
         const renderingContainer = findAnchorElement(menuContainerClassName) || document.body;
         const containerDiv = anchorElementRef.current;
         const menuEle = containerDiv.firstChild;
-        console.log(`rootelement: `, rootElement);
-        console.log(`containerdiv: `, containerDiv);
-        console.log(`resolution: `, resolution === null || resolution === void 0 ? void 0 : resolution.getRect());
         if (rootElement !== null && resolution !== null) {
             const { left, top, height } = resolution.getRect();
             containerDiv.style.top = `${top - renderingContainer.offsetTop + window.pageYOffset}px`;
