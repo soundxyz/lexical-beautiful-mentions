@@ -330,10 +330,10 @@ function useMenuAnchorRef(opt) {
     const [editor] = (0, LexicalComposerContext_1.useLexicalComposerContext)();
     const anchorElementRef = (0, react_1.useRef)(document.createElement("div"));
     const positionMenu = (0, react_1.useCallback)(() => {
-        const rootElement = editor.getRootElement();
+        const editorElement = editor.getRootElement();
         const containerDiv = anchorElementRef.current;
         const menuEle = containerDiv.firstChild;
-        if (rootElement !== null && resolution !== null) {
+        if (editorElement !== null && resolution !== null) {
             const { left, top, height } = resolution.getRect();
             containerDiv.style.top = `${Math.max(top + window.pageYOffset, 0)}px`;
             containerDiv.style.left = `${Math.max(left + window.pageXOffset, 0)}px`;
@@ -342,12 +342,10 @@ function useMenuAnchorRef(opt) {
                 const menuRect = menuEle.getBoundingClientRect();
                 // const menuHeight = menuRect.height;
                 const menuWidth = menuRect.width;
-                const rootElementRect = rootElement.getBoundingClientRect();
-                console.log(`rootElementRect`, rootElementRect);
-                console.log(`resolutionRect: `, resolution.getRect());
-                console.log(`rootElement offset: `, rootElement.offsetLeft);
-                if (left + menuWidth > rootElementRect.right) {
-                    containerDiv.style.left = `${rootElementRect.right - menuWidth + window.pageXOffset}px`;
+                const editorContainer = editorElement.parentElement;
+                const editorContainerRect = editorContainer.getBoundingClientRect();
+                if (left + menuWidth > editorContainerRect.right) {
+                    containerDiv.style.left = `${editorContainerRect.right - menuWidth + window.pageXOffset}px`;
                 }
                 /**
                  * We only want to render the drodpown below
@@ -375,7 +373,7 @@ function useMenuAnchorRef(opt) {
                 document.body.append(containerDiv);
             }
             anchorElementRef.current = containerDiv;
-            rootElement.setAttribute("aria-controls", "typeahead-menu");
+            editorElement.setAttribute("aria-controls", "typeahead-menu");
         }
     }, [editor, resolution, className]);
     (0, react_1.useEffect)(() => {

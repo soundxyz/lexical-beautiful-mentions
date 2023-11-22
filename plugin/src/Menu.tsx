@@ -528,11 +528,11 @@ export function useMenuAnchorRef(
   const [editor] = useLexicalComposerContext();
   const anchorElementRef = useRef<HTMLElement>(document.createElement("div"));
   const positionMenu = useCallback(() => {
-    const rootElement = editor.getRootElement();
+    const editorElement = editor.getRootElement();
     const containerDiv = anchorElementRef.current;
     const menuEle = containerDiv.firstChild as Element;
 
-    if (rootElement !== null && resolution !== null) {
+    if (editorElement !== null && resolution !== null) {
       const { left, top, height } = resolution.getRect();
       containerDiv.style.top = `${Math.max(top + window.pageYOffset, 0)}px`;
       containerDiv.style.left = `${Math.max(left + window.pageXOffset, 0)}px`;
@@ -542,16 +542,13 @@ export function useMenuAnchorRef(
         const menuRect = menuEle.getBoundingClientRect();
         // const menuHeight = menuRect.height;
         const menuWidth = menuRect.width;
+        const editorContainer = editorElement.parentElement;
+        const editorContainerRect = editorContainer!.getBoundingClientRect();
 
-        const rootElementRect = rootElement.getBoundingClientRect();
 
-        console.log(`rootElementRect`, rootElementRect)
-        console.log(`resolutionRect: `, resolution.getRect())
-        console.log(`rootElement offset: `, rootElement.offsetLeft)
-
-        if (left + menuWidth > rootElementRect.right) {
+        if (left + menuWidth > editorContainerRect.right) {
           containerDiv.style.left = `${
-            rootElementRect.right - menuWidth + window.pageXOffset
+            editorContainerRect.right - menuWidth + window.pageXOffset
           }px`;
         }
         /**
@@ -581,7 +578,7 @@ export function useMenuAnchorRef(
         document.body.append(containerDiv);
       }
       anchorElementRef.current = containerDiv;
-      rootElement.setAttribute("aria-controls", "typeahead-menu");
+      editorElement.setAttribute("aria-controls", "typeahead-menu");
     }
   }, [editor, resolution, className]);
 
