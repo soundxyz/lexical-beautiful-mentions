@@ -335,8 +335,8 @@ function useMenuAnchorRef(opt) {
         const menuEle = containerDiv.firstChild;
         if (rootElement !== null && resolution !== null) {
             const { left, top, height } = resolution.getRect();
-            containerDiv.style.top = `${top + window.pageYOffset}px`;
-            containerDiv.style.left = `${left + window.pageXOffset}px`;
+            containerDiv.style.top = `${Math.max(top + window.pageYOffset, 0)}px`;
+            containerDiv.style.left = `${Math.max(left + window.pageXOffset, 0)}px`;
             containerDiv.style.height = `${height}px`;
             if (menuEle !== null) {
                 const menuRect = menuEle.getBoundingClientRect();
