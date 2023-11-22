@@ -391,7 +391,7 @@ export function useMenuAnchorRef(opt) {
     const onVisibilityChange = useCallback((isInView) => {
         if (resolution !== null) {
             if (!isInView) {
-                // setResolution(null);
+                // setResolution(null); don't remove resolution to support scroll
             }
         }
     }, [resolution, setResolution]);
