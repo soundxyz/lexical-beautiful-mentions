@@ -361,7 +361,7 @@ function useMenuAnchorRef(opt) {
                 const rootElementRect = rootElement.getBoundingClientRect();
                 if (left - renderingContainerLeft + menuWidth > rootElementRect.right) {
                     console.log(`rootElementRect.right: ${rootElementRect.right} menuWidth: ${menuWidth}`);
-                    containerDiv.style.left = `${rootElementRect.right - menuWidth - renderingContainerLeft - pageXOffset}px`;
+                    containerDiv.style.left = `${rootElementRect.right - menuWidth - renderingContainerLeft - window.pageXOffset}px`;
                 }
             }
             if (!containerDiv.isConnected) {
