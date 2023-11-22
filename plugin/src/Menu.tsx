@@ -547,6 +547,7 @@ export function useMenuAnchorRef(
 
         console.log(`rootElementRect`, rootElementRect)
         console.log(`resolutionRect: `, resolution.getRect())
+        console.log(`rootElement offset: `, rootElement.offsetLeft)
 
         if (left + menuWidth > rootElementRect.right) {
           containerDiv.style.left = `${

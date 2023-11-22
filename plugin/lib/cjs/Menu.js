@@ -345,6 +345,7 @@ function useMenuAnchorRef(opt) {
                 const rootElementRect = rootElement.getBoundingClientRect();
                 console.log(`rootElementRect`, rootElementRect);
                 console.log(`resolutionRect: `, resolution.getRect());
+                console.log(`rootElement offset: `, rootElement.offsetLeft);
                 if (left + menuWidth > rootElementRect.right) {
                     containerDiv.style.left = `${rootElementRect.right - menuWidth + window.pageXOffset}px`;
                 }
