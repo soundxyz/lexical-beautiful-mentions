@@ -359,8 +359,9 @@ function useMenuAnchorRef(opt) {
                 const menuHeight = menuRect.height;
                 const menuWidth = menuRect.width;
                 const rootElementRect = rootElement.getBoundingClientRect();
-                if (left + menuWidth > rootElementRect.right) {
-                    containerDiv.style.left = `${rootElementRect.right - menuWidth + window.pageXOffset}px`;
+                if (left - renderingContainerLeft + menuWidth > rootElementRect.right) {
+                    console.log(`rootElementRect.right: ${rootElementRect.right} menuWidth: ${menuWidth}`);
+                    containerDiv.style.left = `${rootElementRect.right - menuWidth - renderingContainerLeft - pageXOffset}px`;
                 }
             }
             if (!containerDiv.isConnected) {
