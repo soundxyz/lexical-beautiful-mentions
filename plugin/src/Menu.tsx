@@ -540,7 +540,7 @@ export function useMenuAnchorRef(
 
       if (menuEle !== null) {
         const menuRect = menuEle.getBoundingClientRect();
-        const menuHeight = menuRect.height;
+        // const menuHeight = menuRect.height;
         const menuWidth = menuRect.width;
 
         const rootElementRect = rootElement.getBoundingClientRect();
@@ -550,16 +550,19 @@ export function useMenuAnchorRef(
             rootElementRect.right - menuWidth + window.pageXOffset
           }px`;
         }
-        const margin = 10;
-        if (
-          (top + menuHeight > window.innerHeight ||
-            top + menuHeight > rootElementRect.bottom) &&
-          top - rootElementRect.top > menuHeight
-        ) {
-          containerDiv.style.top = `${
-            top - menuHeight + window.pageYOffset - (height + margin)
-          }px`;
-        }
+        /**
+         * We only want to render the drodpown below
+         */
+        // const margin = 10;
+        // if (
+        //   (top + menuHeight > window.innerHeight ||
+        //     top + menuHeight > rootElementRect.bottom) &&
+        //   top - rootElementRect.top > menuHeight
+        // ) {
+        //   containerDiv.style.top = `${
+        //     top - menuHeight + window.pageYOffset - (height + margin)
+        //   }px`;
+        // }
       }
 
       if (!containerDiv.isConnected) {
