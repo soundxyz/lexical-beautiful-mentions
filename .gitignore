@@ -19,8 +19,6 @@ npm-debug.log*
 # turbo
 .turbo
 
-# build
-plugin/lib
 
 # IDE
 .idea
