@@ -608,7 +608,7 @@ export function useMenuAnchorRef(
     (isInView: boolean) => {
       if (resolution !== null) {
         if (!isInView) {
-          setResolution(null);
+          // setResolution(null);
         }
       }
     },
