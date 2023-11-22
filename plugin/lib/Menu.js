@@ -351,12 +351,7 @@ export function useMenuAnchorRef(opt) {
                 const menuHeight = menuRect.height;
                 const menuWidth = menuRect.width;
                 const rootElementRect = rootElement.getBoundingClientRect();
-                console.log(`rootElementRect: `, rootElementRect);
-                console.log(`resolution.getRect(): `, resolution.getRect());
-                console.log(`menuRect: `, menuRect);
-                console.log(`renderingContainer.getBoundingClientRect(): `, renderingContainer.getBoundingClientRect());
                 if (left + menuWidth > rootElementRect.right) {
-                    console.log(`OVERFLOWED`);
                     containerDiv.style.left = `${rootElementRect.right - renderingContainerLeft - menuWidth - window.pageXOffset}px`;
                 }
             }
